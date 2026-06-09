@@ -8,12 +8,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Imagen.belongsTo(models.Publicacion, {
+        foreignKey: "publicacionId",
+        as: "publicacion",
+      });
     }
   }
   Imagen.init(
     {
-      pathImg: { type: DataTypes.TEXT, allowNull: true }
+      pathImg: { type: DataTypes.TEXT, allowNull: true },
     },
     {
       sequelize,
