@@ -1,6 +1,6 @@
 const { Usuarios } = require("../db/models");
 
-const findAll = async (_, res) => {
+const getAllUser = async (_, res) => {
   try {
     const data = await Usuarios.findAll({});
     res.status(200).json(data);
@@ -8,7 +8,7 @@ const findAll = async (_, res) => {
     res.status(500).json({ ok: false, error: error.message });
   }
 };
-const findOne = async (req, res) => {
+const getOneUser = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -70,4 +70,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { findAll, createUser, findOne, upDateUser, deleteUser };
+module.exports = { getAllUser, getOneUser, createUser, upDateUser, deleteUser };
