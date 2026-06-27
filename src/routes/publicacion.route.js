@@ -6,12 +6,13 @@ const {
   upDatePost,
   deletePost,
 } = require("../controller/publicacion.controller");
+
 const router = Router();
 
 router.get("/", getAllPosts);
 router.get("/:id", getOnePost);
-router.post("/", createPost);
-router.put("/:id", upDatePost);
-router.delete("/:id", deletePost);
+router.post("/usuario/:idUser", createPost);
+router.put("/:id/usuario/:idUser", upDatePost);
+router.delete("/:id/usuario/:idUser", deletePost);
 
 module.exports = router;
